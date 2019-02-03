@@ -1,0 +1,16 @@
+PODS:
+  - CRRefresh (1.1.3)
+
+DEPENDENCIES:
+  - CRRefresh
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CRRefresh
+
+SPEC CHECKSUMS:
+  CRRefresh: 1415d4ae06837fa7bb064c44f2e102f3ef517044
+
+PODFILE CHECKSUM: 93ddd4a37a365a037a3dc41a9d9c7af2b4cb2d46
+
+COCOAPODS: 1.5.3
