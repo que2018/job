@@ -15,6 +15,9 @@
 		2246EE02220170B20034F501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2246EE00220170B20034F501 /* LaunchScreen.storyboard */; };
 		2246EE0D220170B20034F501 /* jobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE0C220170B20034F501 /* jobTests.swift */; };
 		2246EE18220170B20034F501 /* jobUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE17220170B20034F501 /* jobUITests.swift */; };
+		228429552207C69D00993D54 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228429542207C69D00993D54 /* CategoryCell.xib */; };
+		228429582207C9F500993D54 /* CategoryCollectionViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */; };
+		2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */; };
 		22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF7CDB2206C81B00205297 /* CategoryViewController.swift */; };
 		7AC7156CC473A947A67E3DBF /* Pods_jobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B98AC74253C6D3E8107B94 /* Pods_jobTests.framework */; };
 		8AD5396E6B867F113E5905D0 /* Pods_job.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5531BF1BAB21E07FE88B5019 /* Pods_job.framework */; };
@@ -54,6 +57,9 @@
 		2246EE13220170B20034F501 /* jobUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jobUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246EE17220170B20034F501 /* jobUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobUITests.swift; sourceTree = "<group>"; };
 		2246EE19220170B20034F501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		228429542207C69D00993D54 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryCollectionViewCell copy.swift"; sourceTree = "<group>"; };
+		2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		22AF7CDB2206C81B00205297 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3555A591101C963271EC4DDE /* Pods-jobUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jobUITests/Pods-jobUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		39B1C5B48379E27369B1F7EA /* Pods-jobTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jobTests/Pods-jobTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				22AF7CD92206C2AE00205297 /* Controller */,
+				228429592207CE9800993D54 /* Layout */,
+				228429562207C99D00993D54 /* Cell */,
+				228429532207C64F00993D54 /* View */,
 				22AF7CDA2206C2C200205297 /* Storyboard */,
 				2246EDFE220170B20034F501 /* Assets.xcassets */,
 				2246EE03220170B20034F501 /* Info.plist */,
@@ -142,6 +151,30 @@
 				2246EE19220170B20034F501 /* Info.plist */,
 			);
 			path = jobUITests;
+			sourceTree = "<group>";
+		};
+		228429532207C64F00993D54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				228429542207C69D00993D54 /* CategoryCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		228429562207C99D00993D54 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		228429592207CE9800993D54 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		22AF7CD92206C2AE00205297 /* Controller */ = {
@@ -298,6 +331,7 @@
 				2246EE02220170B20034F501 /* LaunchScreen.storyboard in Resources */,
 				2246EDFF220170B20034F501 /* Assets.xcassets in Resources */,
 				2246EDFD220170B00034F501 /* Main.storyboard in Resources */,
+				228429552207C69D00993D54 /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */,
+				2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */,
+				228429582207C9F500993D54 /* CategoryCollectionViewCell copy.swift in Sources */,
 				2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */,
 				2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */,
 				2246EDF8220170B00034F501 /* FeatureViewController.swift in Sources */,
