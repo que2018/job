@@ -1,5 +1,7 @@
 
 import UIKit
+import Alamofire
+import CRRefresh
 
 class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -29,6 +31,18 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         categoryCollectionview.backgroundColor = UIColor.white
         
         self.view.addSubview(categoryCollectionview)
+        
+        categoryCollectionview.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /// start refresh
+            /// Do anything you want...
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                /// Stop refresh when your job finished, it will reset refresh footer if completion is true
+                self?.categoryCollectionview.cr.endHeaderRefresh()
+            })
+        }
+        
+        // manual refresh
+        categoryCollectionview.cr.beginHeaderRefresh()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

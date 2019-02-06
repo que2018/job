@@ -28,7 +28,8 @@ class FeatureViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self?.myTableView.cr.endHeaderRefresh()
             })
         }
-        /// manual refresh
+        
+        // manual refresh
         myTableView.cr.beginHeaderRefresh()
     }
     
