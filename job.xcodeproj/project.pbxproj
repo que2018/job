@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221758982223AC450001718B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221758972223AC450001718B /* Post.swift */; };
+		2217589B2223AE3D0001718B /* ADDR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217589A2223AE3D0001718B /* ADDR.swift */; };
+		2217589F2223B4290001718B /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2217589E2223B4290001718B /* PostCell.xib */; };
+		221758A12223B48A0001718B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221758A02223B48A0001718B /* PostTableViewCell.swift */; };
 		2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF5220170B00034F501 /* AppDelegate.swift */; };
 		2246EDF8220170B00034F501 /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF7220170B00034F501 /* FeatureViewController.swift */; };
 		2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF9220170B00034F501 /* AccountViewController.swift */; };
@@ -16,7 +20,7 @@
 		2246EE0D220170B20034F501 /* jobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE0C220170B20034F501 /* jobTests.swift */; };
 		2246EE18220170B20034F501 /* jobUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE17220170B20034F501 /* jobUITests.swift */; };
 		228429552207C69D00993D54 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228429542207C69D00993D54 /* CategoryCell.xib */; };
-		228429582207C9F500993D54 /* CategoryCollectionViewCell copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */; };
+		228429582207C9F500993D54 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228429572207C9F500993D54 /* CategoryCollectionViewCell.swift */; };
 		2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */; };
 		22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF7CDB2206C81B00205297 /* CategoryViewController.swift */; };
 		7AC7156CC473A947A67E3DBF /* Pods_jobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B98AC74253C6D3E8107B94 /* Pods_jobTests.framework */; };
@@ -43,6 +47,10 @@
 
 /* Begin PBXFileReference section */
 		01615AA8A85A3344A2CB8DB5 /* Pods-jobTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-jobTests/Pods-jobTests.release.xcconfig"; sourceTree = "<group>"; };
+		221758972223AC450001718B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2217589A2223AE3D0001718B /* ADDR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDR.swift; sourceTree = "<group>"; };
+		2217589E2223B4290001718B /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		221758A02223B48A0001718B /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		2246EDF2220170B00034F501 /* job.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = job.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246EDF5220170B00034F501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2246EDF7220170B00034F501 /* FeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +66,7 @@
 		2246EE17220170B20034F501 /* jobUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobUITests.swift; sourceTree = "<group>"; };
 		2246EE19220170B20034F501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		228429542207C69D00993D54 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryCollectionViewCell copy.swift"; sourceTree = "<group>"; };
+		228429572207C9F500993D54 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		22AF7CDB2206C81B00205297 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		3555A591101C963271EC4DDE /* Pods-jobUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jobUITests/Pods-jobUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +107,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221758962223AC230001718B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				221758972223AC450001718B /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		221758992223AE020001718B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2217589A2223AE3D0001718B /* ADDR.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		2246EDE9220170AF0034F501 = {
 			isa = PBXGroup;
 			children = (
@@ -125,9 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				22AF7CD92206C2AE00205297 /* Controller */,
+				221758962223AC230001718B /* Model */,
 				228429592207CE9800993D54 /* Layout */,
 				228429562207C99D00993D54 /* Cell */,
 				228429532207C64F00993D54 /* View */,
+				221758992223AE020001718B /* Constant */,
 				22AF7CDA2206C2C200205297 /* Storyboard */,
 				2246EDFE220170B20034F501 /* Assets.xcassets */,
 				2246EE03220170B20034F501 /* Info.plist */,
@@ -156,6 +182,7 @@
 		228429532207C64F00993D54 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2217589E2223B4290001718B /* PostCell.xib */,
 				228429542207C69D00993D54 /* CategoryCell.xib */,
 			);
 			path = View;
@@ -164,7 +191,8 @@
 		228429562207C99D00993D54 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				228429572207C9F500993D54 /* CategoryCollectionViewCell copy.swift */,
+				228429572207C9F500993D54 /* CategoryCollectionViewCell.swift */,
+				221758A02223B48A0001718B /* PostTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -330,6 +358,7 @@
 			files = (
 				2246EE02220170B20034F501 /* LaunchScreen.storyboard in Resources */,
 				2246EDFF220170B20034F501 /* Assets.xcassets in Resources */,
+				2217589F2223B4290001718B /* PostCell.xib in Resources */,
 				2246EDFD220170B00034F501 /* Main.storyboard in Resources */,
 				228429552207C69D00993D54 /* CategoryCell.xib in Resources */,
 			);
@@ -433,12 +462,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2217589B2223AE3D0001718B /* ADDR.swift in Sources */,
 				22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */,
 				2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */,
-				228429582207C9F500993D54 /* CategoryCollectionViewCell copy.swift in Sources */,
+				228429582207C9F500993D54 /* CategoryCollectionViewCell.swift in Sources */,
 				2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */,
 				2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */,
+				221758982223AC450001718B /* Post.swift in Sources */,
 				2246EDF8220170B00034F501 /* FeatureViewController.swift in Sources */,
+				221758A12223B48A0001718B /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

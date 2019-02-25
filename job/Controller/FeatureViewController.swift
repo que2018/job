@@ -1,11 +1,13 @@
 
 import UIKit
+import Alamofire
 import CRRefresh
 
 class FeatureViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let myArray: NSArray = ["First","Second","Third"]
-    private var myTableView: UITableView!
+    private var posts = [Post]()
+    private var postTableView: UITableView!
+    private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,37 +16,93 @@ class FeatureViewController: UIViewController, UITableViewDelegate, UITableViewD
         let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
         
-        myTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        self.view.addSubview(myTableView)
+        postTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         
-        myTableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
-            /// start refresh
-            /// Do anything you want...
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        postTableView.backgroundColor = .clear
+        postTableView.showsVerticalScrollIndicator = false
+        postTableView.separatorStyle  = UITableViewCell.SeparatorStyle.none
+        postTableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: "PostCell")
+        
+        postTableView.dataSource = self
+        postTableView.delegate = self
+        self.view.addSubview(postTableView)
+        
+        postTableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /* DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 /// Stop refresh when your job finished, it will reset refresh footer if completion is true
-                self?.myTableView.cr.endHeaderRefresh()
-            })
+                self?.postTableView.cr.endHeaderRefresh()
+            }) */
+            
+            self!.loadData()
         }
         
-        // manual refresh
-        myTableView.cr.beginHeaderRefresh()
+        loadData()
+    }
+    
+    func loadData() {
+        posts.removeAll()
+        
+        self.loadingIndicator.center = self.view.center
+        self.loadingIndicator.hidesWhenStopped = true
+        self.loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        self.view.addSubview(self.loadingIndicator)
+        self.loadingIndicator.startAnimating()
+        
+        Alamofire.request(ADDR.POST) .responseJSON { response in
+            self.loadingIndicator.stopAnimating()
+            
+            if let json = response.result.value {
+                let jsonData = json as! [String : Any]
+                
+                let message = jsonData["message"] as! String
+                
+                if message == "success" {
+                    let temp = jsonData["data"] as! [String : Any]
+                    let listJson = temp["list"] as! NSArray
+
+                    for postJson in listJson {
+                        let postData = postJson as! [String : Any]
+                        let title = postData["title"] as! String
+                        let author = postData["author"] as! String
+                        let dateAdded = postData["dateAdded"] as! String
+                        let viewCount = postData["viewCount"] as! Int
+
+                        let post = Post()
+                        post.title = title
+                        post.author = author
+                        post.dateAdded = dateAdded
+                        post.viewCount = viewCount
+                        self.posts.append(post)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.loadingIndicator.stopAnimating()
+                        self.postTableView.reloadData()
+                        self.postTableView.cr.endHeaderRefresh()
+                    }
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Num: \(indexPath.row)")
-        print("Value: \(myArray[indexPath.row])")
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myArray.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = "\(myArray[indexPath.row])"
-        return cell
+        let postTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        postTableViewCell.backgroundColor = .clear
+        postTableViewCell.selectionStyle = .none
+        postTableViewCell.titleLabel.text = posts[indexPath.row].title
+
+        return postTableViewCell
     }
 }

@@ -18,6 +18,6 @@ target 'job' do
   end
 
   pod 'CRRefresh'
-  pod 'Alamofire', '~> 5.0.0.beta.1'
+  pod 'Alamofire', '~>4.7'
 
 end
