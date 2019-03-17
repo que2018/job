@@ -19,6 +19,9 @@
 		221758B1223380400001718B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221758B0223380400001718B /* LoginView.swift */; };
 		221758B322346B360001718B /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221758B222346B360001718B /* BottomBorderTextField.swift */; };
 		221758B52235B5750001718B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221758B42235B5750001718B /* Category.swift */; };
+		2218504B223D7AD1009A515F /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218504A223D7AD1009A515F /* LoadingButton.swift */; };
+		2218504F223DE0DD009A515F /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2218504E223DE0DD009A515F /* AccountView.xib */; };
+		22185051223DE101009A515F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22185050223DE101009A515F /* AccountView.swift */; };
 		2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF5220170B00034F501 /* AppDelegate.swift */; };
 		2246EDF8220170B00034F501 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF7220170B00034F501 /* NewViewController.swift */; };
 		2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF9220170B00034F501 /* AccountViewController.swift */; };
@@ -66,6 +69,9 @@
 		221758B0223380400001718B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		221758B222346B360001718B /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		221758B42235B5750001718B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2218504A223D7AD1009A515F /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		2218504E223DE0DD009A515F /* AccountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
+		22185050223DE101009A515F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		2246EDF2220170B00034F501 /* job.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = job.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246EDF5220170B00034F501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2246EDF7220170B00034F501 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 				2217589E2223B4290001718B /* PostCell.xib */,
 				228429542207C69D00993D54 /* CategoryCell.xib */,
 				221758AE2233801C0001718B /* LoginView.xib */,
+				2218504E223DE0DD009A515F /* AccountView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -154,6 +161,8 @@
 				228429562207C99D00993D54 /* Cell */,
 				221758AA222E5A910001718B /* RoundedUIView.swift */,
 				221758B0223380400001718B /* LoginView.swift */,
+				22185050223DE101009A515F /* AccountView.swift */,
+				2218504A223D7AD1009A515F /* LoadingButton.swift */,
 				221758B222346B360001718B /* BottomBorderTextField.swift */,
 			);
 			path = CustomView;
@@ -396,6 +405,7 @@
 				2246EE02220170B20034F501 /* LaunchScreen.storyboard in Resources */,
 				2217589F2223B4290001718B /* PostCell.xib in Resources */,
 				221758AF2233801C0001718B /* LoginView.xib in Resources */,
+				2218504F223DE0DD009A515F /* AccountView.xib in Resources */,
 				2246EDFD220170B00034F501 /* Main.storyboard in Resources */,
 				228429552207C69D00993D54 /* CategoryCell.xib in Resources */,
 				221758A5222B60210001718B /* Assets.xcassets in Resources */,
@@ -503,11 +513,13 @@
 				2217589B2223AE3D0001718B /* ADDR.swift in Sources */,
 				22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */,
 				2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */,
+				22185051223DE101009A515F /* AccountView.swift in Sources */,
 				228429582207C9F500993D54 /* CategoryCollectionViewCell.swift in Sources */,
 				221758AB222E5A910001718B /* RoundedUIView.swift in Sources */,
 				2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */,
 				2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */,
 				221758982223AC450001718B /* Post.swift in Sources */,
+				2218504B223D7AD1009A515F /* LoadingButton.swift in Sources */,
 				2246EDF8220170B00034F501 /* NewViewController.swift in Sources */,
 				221758A3222B588D0001718B /* TabBarViewController.swift in Sources */,
 				221758B1223380400001718B /* LoginView.swift in Sources */,
@@ -693,6 +705,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 477GQ3NW7C;
 				INFOPLIST_FILE = job/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -712,6 +725,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 477GQ3NW7C;
 				INFOPLIST_FILE = job/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,11 +1,13 @@
 
 import UIKit
+import Alamofire
 
 class LoginView: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var usernameTextField: BottomBorderTextField!
+    @IBOutlet weak var nameTextField: BottomBorderTextField!
     @IBOutlet weak var passwordTextField: BottomBorderTextField!
+    @IBOutlet weak var loginButton: LoadingButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,8 +27,41 @@ class LoginView: UIView {
         
         let borderColor = UIColor(red: 207 / 255, green: 207 / 255, blue: 207 / 255, alpha: 1.0)
 
-        usernameTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
+        nameTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
         passwordTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
+    }
+    
+    @IBAction func submitLogin(_ sender: Any) {
+        self.endEditing(true)
+        
+        let name = self.nameTextField.text!
+        let password = self.passwordTextField.text!
+        
+        self.loginButton.showLoading()
+            
+        self.nameTextField.isUserInteractionEnabled = false
+        self.passwordTextField.isUserInteractionEnabled = false
+            
+        let parameters:[String: String] = [
+            "name": name,
+            "password": password
+        ]
+        
+        Alamofire.request(ADDR.LOGIN, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
+            self.loginButton.hideLoading()
+
+            self.nameTextField.isUserInteractionEnabled = true
+            self.passwordTextField.isUserInteractionEnabled = true
+            
+            if let json = response.result.value {
+                let jsonData = json as! [String  : Any]
+                
+                print(jsonData)
+                
+                //let code = jsonData["code"] as! Int
+                
+            }
+        }
     }
 }
 
