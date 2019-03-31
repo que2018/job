@@ -48,7 +48,7 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                
+                                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {
@@ -60,7 +60,7 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         //let id = postData["id"] as! String
                         let title = postData["title"] as! String
                         let author = postData["author"] as! String
-                        let description = postData["description"] as! String
+                        //let description = postData["description"] as! String
                         let dateAdded = postData["dateAdded"] as! String
                         let viewCount = postData["viewCount"] as! Int
 
@@ -68,7 +68,7 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         // post.id = id
                         post.title = title
                         post.author = author
-                        post.description = description
+                        //post.description = description
                         post.dateAdded = dateAdded
                         post.viewCount = viewCount
                         self.posts.append(post)

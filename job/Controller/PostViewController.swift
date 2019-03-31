@@ -7,7 +7,6 @@ class PostViewController: UIViewController {
     var postId = ""
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var despLabel: UILabel!
     
     private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -17,7 +16,7 @@ class PostViewController: UIViewController {
         loadData()
     }
     
-    func loadData() {
+    private func loadData() {
         self.loadingIndicator.center = self.view.center
         self.loadingIndicator.hidesWhenStopped = true
         self.loadingIndicator.style = UIActivityIndicatorView.Style.gray
@@ -28,12 +27,16 @@ class PostViewController: UIViewController {
             self.loadingIndicator.stopAnimating()
             
             if let json = response.result.value {
-                let jsonData = json as! [String : Any]
+                //let jsonData = json as! [String : Any]
                 
                 DispatchQueue.main.async {
                     self.loadingIndicator.stopAnimating()
                 }
             }
         }
+    }
+    
+    @IBAction private func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }

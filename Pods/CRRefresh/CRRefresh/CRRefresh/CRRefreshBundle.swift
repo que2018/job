@@ -65,8 +65,10 @@ class CRRefreshBundle {
             switch current {
             case "zh":
                 language = "zh"
-            default:
+            case "en":
                 language = "en"
+            default:
+                language = "zh"
             }
             if let path = crBundle.path(forResource: language, ofType: "lproj") {
                 if let bundle = Bundle(path: path) {

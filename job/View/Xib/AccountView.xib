@@ -18,8 +18,36 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pL3-Au-ahf">
+                    <rect key="frame" x="0.0" y="20" width="375" height="133.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="YHp-JZ-UWr">
+                            <rect key="frame" x="30" y="36.5" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="RZc-ww-9BT"/>
+                                <constraint firstAttribute="width" secondItem="YHp-JZ-UWr" secondAttribute="height" multiplier="1:1" id="y47-Xn-swF"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="YHp-JZ-UWr" firstAttribute="leading" secondItem="pL3-Au-ahf" secondAttribute="leading" constant="30" id="7W8-sV-wef"/>
+                        <constraint firstItem="YHp-JZ-UWr" firstAttribute="centerY" secondItem="pL3-Au-ahf" secondAttribute="centerY" id="FPr-OJ-AOz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pL3-Au-ahf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I6y-1J-dOp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pL3-Au-ahf" secondAttribute="trailing" id="Nbq-mW-KVN"/>
+                <constraint firstItem="pL3-Au-ahf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ggc-QK-1Z9"/>
+                <constraint firstItem="pL3-Au-ahf" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="sWZ-1W-Z7B"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="133.59999999999999" y="143.47826086956522"/>
         </view>
     </objects>
+    <resources>
+        <image name="portrait" width="166" height="166"/>
+    </resources>
 </document>

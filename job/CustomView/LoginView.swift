@@ -43,7 +43,7 @@ class LoginView: UIView {
         self.passwordTextField.isUserInteractionEnabled = false
             
         let parameters:[String: String] = [
-            "name": name,
+            "customerName": name,
             "password": password
         ]
         
@@ -54,12 +54,17 @@ class LoginView: UIView {
             self.passwordTextField.isUserInteractionEnabled = true
             
             if let json = response.result.value {
-                let jsonData = json as! [String  : Any]
+                let jsonData = json as! [String : Any]
                 
-                print(jsonData)
+                let code = jsonData["code"] as! Int
                 
-                //let code = jsonData["code"] as! Int
-                
+                if code == 0 {
+                    NotificationCenter.default.post(name: .login, object: nil)
+                } else {
+                    let message = jsonData["message"] as! String
+                    
+                    print(message)
+                }
             }
         }
     }
