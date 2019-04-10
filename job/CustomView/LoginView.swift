@@ -1,5 +1,6 @@
 
 import UIKit
+import Toaster
 import Alamofire
 
 class LoginView: UIView {
@@ -63,7 +64,9 @@ class LoginView: UIView {
                 } else {
                     let message = jsonData["message"] as! String
                     
-                    print(message)
+                    let toast = Toast(text: message, duration: Delay.short)
+                    ToastView.appearance().font = UIFont.systemFont(ofSize: 18)
+                    toast.show()
                 }
             }
         }

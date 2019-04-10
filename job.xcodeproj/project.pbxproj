@@ -29,10 +29,12 @@
 		2246EE02220170B20034F501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2246EE00220170B20034F501 /* LaunchScreen.storyboard */; };
 		2246EE0D220170B20034F501 /* jobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE0C220170B20034F501 /* jobTests.swift */; };
 		2246EE18220170B20034F501 /* jobUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EE17220170B20034F501 /* jobUITests.swift */; };
+		2273D287225DA63A00090F78 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2273D286225DA63A00090F78 /* RegisterViewController.swift */; };
 		228429552207C69D00993D54 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228429542207C69D00993D54 /* CategoryCell.xib */; };
 		228429582207C9F500993D54 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228429572207C9F500993D54 /* CategoryCollectionViewCell.swift */; };
 		2284295B2207CEC700993D54 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */; };
 		22AF7CDC2206C81B00205297 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF7CDB2206C81B00205297 /* CategoryViewController.swift */; };
+		22BD5C1B225314670070EAF3 /* PostCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BD5C1A225314670070EAF3 /* PostCategoryViewController.swift */; };
 		22E07CDB2240B4FA0073B985 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E07CDA2240B4FA0073B985 /* Notification.swift */; };
 		7AC7156CC473A947A67E3DBF /* Pods_jobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B98AC74253C6D3E8107B94 /* Pods_jobTests.framework */; };
 		8AD5396E6B867F113E5905D0 /* Pods_job.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5531BF1BAB21E07FE88B5019 /* Pods_job.framework */; };
@@ -86,10 +88,12 @@
 		2246EE13220170B20034F501 /* jobUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jobUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246EE17220170B20034F501 /* jobUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobUITests.swift; sourceTree = "<group>"; };
 		2246EE19220170B20034F501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2273D286225DA63A00090F78 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		228429542207C69D00993D54 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		228429572207C9F500993D54 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2284295A2207CEC700993D54 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		22AF7CDB2206C81B00205297 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		22BD5C1A225314670070EAF3 /* PostCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCategoryViewController.swift; sourceTree = "<group>"; };
 		22E07CDA2240B4FA0073B985 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3555A591101C963271EC4DDE /* Pods-jobUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jobUITests/Pods-jobUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		39B1C5B48379E27369B1F7EA /* Pods-jobTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jobTests/Pods-jobTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,10 +260,12 @@
 			isa = PBXGroup;
 			children = (
 				2246EDF5220170B00034F501 /* AppDelegate.swift */,
+				2273D286225DA63A00090F78 /* RegisterViewController.swift */,
 				2246EDF9220170B00034F501 /* AccountViewController.swift */,
 				22AF7CDB2206C81B00205297 /* CategoryViewController.swift */,
 				2246EDF7220170B00034F501 /* NewViewController.swift */,
 				221758A6222B693E0001718B /* PostViewController.swift */,
+				22BD5C1A225314670070EAF3 /* PostCategoryViewController.swift */,
 				221758A2222B588D0001718B /* TabBarViewController.swift */,
 			);
 			path = Controller;
@@ -467,11 +473,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-job/Pods-job-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CRRefresh/CRRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,9 +540,11 @@
 				2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */,
 				221758982223AC450001718B /* Post.swift in Sources */,
 				2218504B223D7AD1009A515F /* LoadingButton.swift in Sources */,
+				2273D287225DA63A00090F78 /* RegisterViewController.swift in Sources */,
 				2246EDF8220170B00034F501 /* NewViewController.swift in Sources */,
 				221758A3222B588D0001718B /* TabBarViewController.swift in Sources */,
 				221758B1223380400001718B /* LoginView.swift in Sources */,
+				22BD5C1B225314670070EAF3 /* PostCategoryViewController.swift in Sources */,
 				221758B52235B5750001718B /* Category.swift in Sources */,
 				221758A12223B48A0001718B /* PostTableViewCell.swift in Sources */,
 				221758B322346B360001718B /* BottomBorderTextField.swift in Sources */,

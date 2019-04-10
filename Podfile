@@ -18,6 +18,7 @@ target 'job' do
   end
 
   pod 'CRRefresh'
+  pod 'Toaster'
   pod 'Alamofire', '~>4.7'
 
 end

@@ -1,11 +1,11 @@
-
 import UIKit
 import Alamofire
 import CRRefresh
 
-class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PostCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var postId = ""
+    public var categoryId = ""
     private var posts = [Post]()
     private var postTableView: UITableView!
     private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -43,20 +43,18 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.startAnimating()
         
-        let parameters:[String: String] = [:]
+        let parameters:[String:String] = ["_category_id":self.categoryId]
         
         Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
-            self.loadingIndicator.stopAnimating()
-            
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                                
+                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {
-                    let temp = jsonData["data"] as! [String : Any]
-                    let listJson = temp["list"] as! NSArray
-
+                    let data = jsonData["data"] as! [String : Any]
+                    let listJson = data["list"] as! NSArray
+                    
                     for postJson in listJson {
                         let postData = postJson as! [String : Any]
                         let id = postData["_id"] as! String
@@ -65,7 +63,7 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         let description = postData["description"] as! String
                         let dateAdded = postData["dateAdded"] as! String
                         let viewCount = postData["viewCount"] as! Int
-
+                        
                         let post = Post()
                         post.id = id
                         post.title = title
@@ -107,14 +105,14 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let description = posts[indexPath.row].description.prefix(80)
         postTableViewCell.descriptionLabel.text = String(description)
-
+        
         return postTableViewCell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue_post" {
             if let postViewController = segue.destination as? PostViewController {
-                postViewController.postId = postId
+                //postiewController.postId = postId
             }
         }
     }

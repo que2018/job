@@ -7,6 +7,7 @@ class PostViewController: UIViewController {
     var postId = ""
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
     
     private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
@@ -23,14 +24,31 @@ class PostViewController: UIViewController {
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.startAnimating()
         
-        Alamofire.request(ADDR.POST) .responseJSON { response in
+        let url = ADDR.POST + "?id=" + self.postId
+        
+        print(self.postId)
+        
+        Alamofire.request(url) .responseJSON { response in
             self.loadingIndicator.stopAnimating()
             
             if let json = response.result.value {
-                //let jsonData = json as! [String : Any]
+                let jsonData = json as! [String : Any]
                 
-                DispatchQueue.main.async {
-                    self.loadingIndicator.stopAnimating()
+                print(jsonData)
+                
+                let message = jsonData["message"] as! String
+                
+                if message == "success" {
+                    let post = jsonData["data"] as! [String : Any]
+                    let title = post["title"] as! String
+                    let description = post["description"] as! String
+                    
+                    DispatchQueue.main.async {
+                        self.loadingIndicator.stopAnimating()
+                        
+                        self.titleLabel.text = title
+                        self.descriptionText.text = description
+                    }
                 }
             }
         }

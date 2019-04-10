@@ -5,6 +5,7 @@ import CRRefresh
 
 class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    private var selectedCategoryId = ""
     private var categories = [Category]()
     private var categoryCollectionview: UICollectionView!
     private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -59,18 +60,21 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                
+                                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {
-                    let temp = jsonData["data"] as! [String : Any]
-                    let listJson = temp["list"] as! NSArray
+                    let data = jsonData["data"] as! [String : Any]
+                    let listJson = data["list"] as! NSArray
                     
-                    for postJson in listJson {
-                        let postData = postJson as! [String : Any]
-                        let name = postData["Name"] as! String
+                    for categoryJson in listJson {
+                        let categoryData = categoryJson as! [String : Any]
+                        
+                        let id = categoryData["_id"] as! String
+                        let name = categoryData["Name"] as! String
                 
                         let category = Category()
+                        category.id = id
                         category.name = name
                         self.categories.append(category)
                     }
@@ -95,5 +99,18 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         categoryCell.nameLabel.text = categories[indexPath.row].name
         
         return categoryCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedCategoryId = categories[indexPath.row].id
+        performSegue(withIdentifier: "segue_c_pc", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_c_pc" {
+            if let postCategoryController = segue.destination as? PostCategoryViewController {
+                postCategoryController.categoryId = self.selectedCategoryId
+            }
+        }
     }
 }
