@@ -22,6 +22,7 @@
 		2218504B223D7AD1009A515F /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218504A223D7AD1009A515F /* LoadingButton.swift */; };
 		2218504F223DE0DD009A515F /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2218504E223DE0DD009A515F /* AccountView.xib */; };
 		22185051223DE101009A515F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22185050223DE101009A515F /* AccountView.swift */; };
+		2246993B2262F881000908B1 /* CONST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246993A2262F881000908B1 /* CONST.swift */; };
 		2246EDF6220170B00034F501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF5220170B00034F501 /* AppDelegate.swift */; };
 		2246EDF8220170B00034F501 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF7220170B00034F501 /* NewViewController.swift */; };
 		2246EDFA220170B00034F501 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2246EDF9220170B00034F501 /* AccountViewController.swift */; };
@@ -75,6 +76,7 @@
 		2218504A223D7AD1009A515F /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		2218504E223DE0DD009A515F /* AccountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
 		22185050223DE101009A515F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		2246993A2262F881000908B1 /* CONST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONST.swift; sourceTree = "<group>"; };
 		2246EDF2220170B00034F501 /* job.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = job.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2246EDF5220170B00034F501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2246EDF7220170B00034F501 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2217589A2223AE3D0001718B /* ADDR.swift */,
+				2246993A2262F881000908B1 /* CONST.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				221758A12223B48A0001718B /* PostTableViewCell.swift in Sources */,
 				221758B322346B360001718B /* BottomBorderTextField.swift in Sources */,
 				221758A7222B693E0001718B /* PostViewController.swift in Sources */,
+				2246993B2262F881000908B1 /* CONST.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

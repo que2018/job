@@ -26,8 +26,6 @@ class PostViewController: UIViewController {
         
         let url = ADDR.POST + "?id=" + self.postId
         
-        print(self.postId)
-        
         Alamofire.request(url) .responseJSON { response in
             self.loadingIndicator.stopAnimating()
             

@@ -72,10 +72,12 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
                         
                         let id = categoryData["_id"] as! String
                         let name = categoryData["Name"] as! String
-                
+                        let imageUrl = categoryData["ImageUrl"] as! String
+                        
                         let category = Category()
                         category.id = id
                         category.name = name
+                        category.imageUrl = imageUrl
                         self.categories.append(category)
                     }
                     
@@ -96,7 +98,14 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let categoryCell = categoryCollectionview.dequeueReusableCell(withReuseIdentifier: "category_cell", for: indexPath) as! CategoryCollectionViewCell
         
-        categoryCell.nameLabel.text = categories[indexPath.row].name
+        let name = categories[indexPath.row].name
+        let imageUrl = categories[indexPath.row].imageUrl
+        
+        categoryCell.nameLabel.text = name
+        
+        let url = URL(string: imageUrl)
+        let data = try? Data(contentsOf: url!)
+        categoryCell.imageView.image = UIImage(data: data!)
         
         return categoryCell
     }

@@ -43,11 +43,21 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.startAnimating()
         
-        let parameters:[String:String] = ["_category_id":self.categoryId]
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
         
-        Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
+        let parameters:[String : Any] = [
+            "_category_id" : self.categoryId,
+            "start" : 0,
+            "limit" : 2
+        ]
+        
+        Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON { response in
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
+                
+                print(jsonData)
                 
                 let message = jsonData["message"] as! String
                 
