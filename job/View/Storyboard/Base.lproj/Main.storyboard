@@ -54,9 +54,49 @@
                     <view key="view" contentMode="scaleToFill" id="1JB-Xv-tBr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2Z-US-tNn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IT-tt-Qgs">
+                                        <rect key="frame" x="5" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="8IT-tt-Qgs" secondAttribute="height" multiplier="1:1" id="HSk-rS-wQd"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="back:" destination="K25-fe-l5W" eventType="touchUpInside" id="puX-hS-CJu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8IT-tt-Qgs" firstAttribute="leading" secondItem="V2Z-US-tNn" secondAttribute="leading" constant="5" id="2Sl-Nz-lLu"/>
+                                    <constraint firstItem="8IT-tt-Qgs" firstAttribute="centerY" secondItem="V2Z-US-tNn" secondAttribute="centerY" id="GTK-tY-K9R"/>
+                                    <constraint firstItem="8IT-tt-Qgs" firstAttribute="height" secondItem="V2Z-US-tNn" secondAttribute="height" id="k5R-lu-WLN"/>
+                                    <constraint firstAttribute="height" constant="45" id="zrU-uQ-3cE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcJ-SR-j0A">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="V2Z-US-tNn" firstAttribute="top" secondItem="RTL-Ks-nTa" secondAttribute="top" id="38A-8e-gS2"/>
+                            <constraint firstItem="RTL-Ks-nTa" firstAttribute="trailing" secondItem="vcJ-SR-j0A" secondAttribute="trailing" id="3QV-dD-kH0"/>
+                            <constraint firstItem="RTL-Ks-nTa" firstAttribute="bottom" secondItem="vcJ-SR-j0A" secondAttribute="bottom" id="7Bm-dp-oXM"/>
+                            <constraint firstItem="V2Z-US-tNn" firstAttribute="leading" secondItem="RTL-Ks-nTa" secondAttribute="leading" id="CZ8-7I-Xhb"/>
+                            <constraint firstItem="RTL-Ks-nTa" firstAttribute="trailing" secondItem="V2Z-US-tNn" secondAttribute="trailing" id="DlU-7D-H5P"/>
+                            <constraint firstItem="vcJ-SR-j0A" firstAttribute="leading" secondItem="RTL-Ks-nTa" secondAttribute="leading" id="lfk-kV-hvi"/>
+                            <constraint firstItem="vcJ-SR-j0A" firstAttribute="top" secondItem="V2Z-US-tNn" secondAttribute="bottom" id="vd0-0Z-6SC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RTL-Ks-nTa"/>
                     </view>
+                    <connections>
+                        <outlet property="postTableViewWrap" destination="vcJ-SR-j0A" id="0fK-h7-DMx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keh-ub-jel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

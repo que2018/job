@@ -4,11 +4,15 @@ import CRRefresh
 
 class PostCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var postId = ""
-    public var categoryId = ""
-    private var posts = [Post]()
-    private var postTableView: UITableView!
-    private let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var postId = ""
+    var pointer = 0
+    var categoryId = ""
+    var locker = false
+    var posts = [Post]()
+    var postTableView: UITableView!
+    let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    @IBOutlet weak var postTableViewWrap: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +29,18 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
         
         postTableView.dataSource = self
         postTableView.delegate = self
-        self.view.addSubview(postTableView)
+        self.postTableViewWrap.addSubview(postTableView)
         
         postTableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
-            self!.loadData()
+            self!.refreshData()
         }
         
-        loadData()
+        refreshData()
     }
     
-    func loadData() {
+    func refreshData() {
+        pointer = 0
+        locker = false
         posts.removeAll()
         
         self.loadingIndicator.center = self.view.center
@@ -43,51 +49,126 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.startAnimating()
         
-        let headers = [
-            "Content-Type": "application/x-www-form-urlencoded"
-        ]
-        
-        let parameters:[String : Any] = [
+        let parameters : Parameters = [
             "_category_id" : self.categoryId,
             "start" : 0,
-            "limit" : 2
+            "limit" : CONST.PAGE_LIMIT
         ]
-        
-        Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON { response in
+                
+        Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
+            self.loadingIndicator.stopAnimating()
+            
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                
-                print(jsonData)
-                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {
+                    let temp = jsonData["data"] as! [String : Any]
+                    let listJson = temp["list"] as! NSArray
+                    
+                    if listJson.count > 0 {
+                        for postJson in listJson {
+                            let postData = postJson as! [String : Any]
+                            let id = postData["_id"] as! String
+                            let title = postData["title"] as! String
+                            let author = postData["author"] as! String
+                            let description = postData["description"] as! String
+                            let dateAdded = postData["dateAdded"] as! String
+                            let viewCount = postData["viewCount"] as! Int
+                            
+                            let post = Post()
+                            post.id = id
+                            post.title = title
+                            post.author = author
+                            post.description = description
+                            post.dateAdded = dateAdded
+                            post.viewCount = viewCount
+                            self.posts.append(post)
+                        }
+                        
+                        self.pointer = self.posts.count - 1
+                        
+                        DispatchQueue.main.async {
+                            self.loadingIndicator.stopAnimating()
+                            self.postTableView.reloadData()
+                        }
+                    }
+                    
+                    self.postTableView.cr.endHeaderRefresh()
+                }
+            }
+        }
+    }
+    func loadData() {
+        if(self.pointer < 0 || self.locker) {
+            return
+        }
+        
+        self.locker = true
+        
+        print("pointer is ... ")
+        print(self.pointer + 1)
+        
+        let parameters : Parameters = [
+            "_category_id" : self.categoryId,
+            "start" : self.pointer + 1,
+            "limit" : CONST.PAGE_LIMIT
+        ]
+        
+        Alamofire.request(ADDR.POSTS, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
+            if let json = response.result.value {
+                let jsonData = json as! [String : Any]
+                let message = jsonData["message"] as! String
+                
+                if message == "success" {
+                    var newPosts = [Post]()
+                    
                     let data = jsonData["data"] as! [String : Any]
                     let listJson = data["list"] as! NSArray
                     
-                    for postJson in listJson {
-                        let postData = postJson as! [String : Any]
-                        let id = postData["_id"] as! String
-                        let title = postData["title"] as! String
-                        let author = postData["author"] as! String
-                        let description = postData["description"] as! String
-                        let dateAdded = postData["dateAdded"] as! String
-                        let viewCount = postData["viewCount"] as! Int
+                    if listJson.count > 0 {
                         
-                        let post = Post()
-                        post.id = id
-                        post.title = title
-                        post.author = author
-                        post.description = description
-                        post.dateAdded = dateAdded
-                        post.viewCount = viewCount
-                        self.posts.append(post)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        self.loadingIndicator.stopAnimating()
-                        self.postTableView.reloadData()
-                        self.postTableView.cr.endHeaderRefresh()
+                        print("goint to print list count")
+                        print(listJson.count)
+                        
+                        for postJson in listJson {
+                            let postData = postJson as! [String : Any]
+                            let id = postData["_id"] as! String
+                            let title = postData["title"] as! String
+                            let author = postData["author"] as! String
+                            let description = postData["description"] as! String
+                            let dateAdded = postData["dateAdded"] as! String
+                            let viewCount = postData["viewCount"] as! Int
+                            
+                            let post = Post()
+                            post.id = id
+                            post.title = title
+                            post.author = author
+                            post.description = description
+                            post.dateAdded = dateAdded
+                            post.viewCount = viewCount
+                            self.posts.append(post)
+                            newPosts.append(post)
+                        }
+                        
+                        DispatchQueue.main.async() {
+                            if newPosts.count > 0 {
+                                self.postTableView.beginUpdates()
+                            
+                                for (index, post) in newPosts.enumerated() {
+                                    let row = self.pointer + 1 + index
+                                    self.postTableView.insertRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+                                }
+                            
+                                self.postTableView.endUpdates()
+                        
+                                self.pointer = self.pointer + listJson.count
+                            }
+                            
+                            self.locker = false
+                        }
+                    } else {
+                        self.pointer = -1
                     }
                 }
             }
@@ -111,19 +192,44 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
         let postTableViewCell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         postTableViewCell.backgroundColor = .clear
         postTableViewCell.selectionStyle = .none
-        postTableViewCell.titleLabel.text = posts[indexPath.row].title
         
-        let description = posts[indexPath.row].description.prefix(80)
+        var title = posts[indexPath.row].title
+        
+        if title.count > 15 {
+            title = title.prefix(15) + "..."
+        }
+        
+        postTableViewCell.titleLabel.text = String(title)
+        
+        var description = posts[indexPath.row].description
+        
+        if description.count > 50 {
+            description = description.prefix(50) + "..."
+        }
+        
         postTableViewCell.descriptionLabel.text = String(description)
         
         return postTableViewCell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            loadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue_post" {
             if let postViewController = segue.destination as? PostViewController {
-                //postiewController.postId = postId
+                postViewController.postId = postId
             }
         }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
     }
 }

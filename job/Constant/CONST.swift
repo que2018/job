@@ -2,6 +2,6 @@
 import Foundation
 
 struct CONST  {
-    static let PAGE_LIMIT = 8
+    static let PAGE_LIMIT = 5
 }
 
