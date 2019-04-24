@@ -106,9 +106,6 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
         
         self.locker = true
         
-        print("pointer is ... ")
-        print(self.pointer + 1)
-        
         let parameters : Parameters = [
             "_category_id" : self.categoryId,
             "start" : self.pointer + 1,
@@ -127,10 +124,6 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
                     let listJson = data["list"] as! NSArray
                     
                     if listJson.count > 0 {
-                        
-                        print("goint to print list count")
-                        print(listJson.count)
-                        
                         for postJson in listJson {
                             let postData = postJson as! [String : Any]
                             let id = postData["_id"] as! String
@@ -177,7 +170,7 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         postId = self.posts[indexPath.row].id
-        performSegue(withIdentifier: "segue_post", sender: self)
+        performSegue(withIdentifier: "segue_post2", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -222,7 +215,7 @@ class PostCategoryViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segue_post" {
+        if segue.identifier == "segue_post2" {
             if let postViewController = segue.destination as? PostViewController {
                 postViewController.postId = postId
             }

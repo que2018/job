@@ -96,11 +96,12 @@
                     </view>
                     <connections>
                         <outlet property="postTableViewWrap" destination="vcJ-SR-j0A" id="0fK-h7-DMx"/>
+                        <segue destination="SZP-uG-rGn" kind="show" identifier="segue_post2" id="EDH-VP-49v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keh-ub-jel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3140" y="170"/>
+            <point key="canvasLocation" x="2905" y="170"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="xH2-gj-16U">
@@ -143,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="161.5" width="375" height="505.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D3C-6u-hEE">
-                                        <rect key="frame" x="20" y="20" width="335" height="465.5"/>
+                                        <rect key="frame" x="20" y="5" width="335" height="480.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -153,15 +154,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="D3C-6u-hEE" secondAttribute="trailing" constant="20" id="RAO-Fc-qGW"/>
                                     <constraint firstAttribute="bottom" secondItem="D3C-6u-hEE" secondAttribute="bottom" constant="20" id="YzZ-UO-jTE"/>
-                                    <constraint firstItem="D3C-6u-hEE" firstAttribute="top" secondItem="HEC-Sn-T84" secondAttribute="top" constant="20" id="cEA-hH-V62"/>
+                                    <constraint firstItem="D3C-6u-hEE" firstAttribute="top" secondItem="HEC-Sn-T84" secondAttribute="top" constant="5" id="cEA-hH-V62"/>
                                     <constraint firstItem="D3C-6u-hEE" firstAttribute="leading" secondItem="HEC-Sn-T84" secondAttribute="leading" constant="20" id="js1-Pp-6dd"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpR-oa-cAk">
-                                <rect key="frame" x="0.0" y="68" width="375" height="66.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpR-oa-cAk">
+                                <rect key="frame" x="0.0" y="65" width="375" height="66.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7T-hu-IUL">
-                                        <rect key="frame" x="30" y="18.5" width="49.5" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7T-hu-IUL">
+                                        <rect key="frame" x="30" y="18.5" width="315" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -170,6 +171,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="a7T-hu-IUL" firstAttribute="leading" secondItem="ZpR-oa-cAk" secondAttribute="leading" constant="30" id="072-bk-zlM"/>
+                                    <constraint firstAttribute="trailing" secondItem="a7T-hu-IUL" secondAttribute="trailing" constant="30" id="0Cl-I5-4I0"/>
                                     <constraint firstItem="a7T-hu-IUL" firstAttribute="centerY" secondItem="ZpR-oa-cAk" secondAttribute="centerY" id="16f-Lc-UuI"/>
                                 </constraints>
                             </view>
@@ -200,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIg-ug-KJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3140" y="-733.5832083958021"/>
+            <point key="canvasLocation" x="4226" y="-569"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="Q4w-7q-miu">
@@ -215,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JbF-iy-3zH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4630" y="-590"/>
+            <point key="canvasLocation" x="5316" y="-569"/>
         </scene>
         <!--我的-->
         <scene sceneID="wg7-f3-ORb">
@@ -269,5 +271,8 @@
         <image name="clock" width="25" height="25"/>
         <image name="me" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EDH-VP-49v"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

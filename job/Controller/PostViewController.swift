@@ -31,9 +31,6 @@ class PostViewController: UIViewController {
             
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                
-                print(jsonData)
-                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {
