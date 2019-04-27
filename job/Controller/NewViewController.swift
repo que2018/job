@@ -22,7 +22,7 @@ class NewViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         postTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         postTableView.backgroundColor = .clear
         postTableView.showsVerticalScrollIndicator = false
-        postTableView.separatorStyle  = UITableViewCell.SeparatorStyle.none
+        postTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         postTableView.register(UINib(nibName: "PostCell", bundle: Bundle.main), forCellReuseIdentifier: "PostCell")
         
         postTableView.dataSource = self

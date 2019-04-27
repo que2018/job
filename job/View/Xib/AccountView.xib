@@ -29,14 +29,30 @@
                                 <constraint firstAttribute="width" secondItem="YHp-JZ-UWr" secondAttribute="height" multiplier="1:1" id="y47-Xn-swF"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOg-nj-Teo">
+                            <rect key="frame" x="151" y="56" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你好, 小明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ald-Ts-7i7">
+                            <rect key="frame" x="115" y="53" width="103.5" height="27.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="YHp-JZ-UWr" firstAttribute="leading" secondItem="pL3-Au-ahf" secondAttribute="leading" constant="30" id="7W8-sV-wef"/>
                         <constraint firstItem="YHp-JZ-UWr" firstAttribute="centerY" secondItem="pL3-Au-ahf" secondAttribute="centerY" id="FPr-OJ-AOz"/>
+                        <constraint firstItem="Ald-Ts-7i7" firstAttribute="centerY" secondItem="pL3-Au-ahf" secondAttribute="centerY" id="SsX-iI-Nuo"/>
+                        <constraint firstItem="Ald-Ts-7i7" firstAttribute="leading" secondItem="YHp-JZ-UWr" secondAttribute="trailing" constant="25" id="eRR-dd-kst"/>
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="pL3-Au-ahf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I6y-1J-dOp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pL3-Au-ahf" secondAttribute="trailing" id="Nbq-mW-KVN"/>

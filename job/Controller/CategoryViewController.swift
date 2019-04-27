@@ -38,6 +38,7 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         categoryCollectionview.contentInsetAdjustmentBehavior = .always
         categoryCollectionview.showsVerticalScrollIndicator = false
         categoryCollectionview.backgroundColor = UIColor.white
+        categoryCollectionview.alwaysBounceVertical = true
         
         self.view.addSubview(categoryCollectionview)
         
@@ -60,7 +61,6 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
-                                
                 let message = jsonData["message"] as! String
                 
                 if message == "success" {

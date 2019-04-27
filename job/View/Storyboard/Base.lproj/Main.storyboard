@@ -272,7 +272,7 @@
         <image name="me" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDH-VP-49v"/>
+        <segue reference="Hlo-h0-P4s"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
