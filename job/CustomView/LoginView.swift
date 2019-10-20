@@ -6,9 +6,10 @@ import Alamofire
 class LoginView: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var nameTextField: BottomBorderTextField!
-    @IBOutlet weak var passwordTextField: BottomBorderTextField!
     @IBOutlet weak var loginButton: LoadingButton!
+    @IBOutlet weak var nameTextField: BottomBorderTextField!
+    @IBOutlet var emailTextField: BottomBorderTextField!
+    @IBOutlet weak var passwordTextField: BottomBorderTextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,46 +29,36 @@ class LoginView: UIView {
         
         let borderColor = UIColor(red: 207 / 255, green: 207 / 255, blue: 207 / 255, alpha: 1.0)
 
-        nameTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
+        emailTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
         passwordTextField.setBottomBorder(borderColor: borderColor, width: 1.2)
     }
     
     @IBAction func submitLogin(_ sender: Any) {
         self.endEditing(true)
         
-        let name = self.nameTextField.text!
+        let email = self.emailTextField.text!
         let password = self.passwordTextField.text!
         
         self.loginButton.showLoading()
             
-        self.nameTextField.isUserInteractionEnabled = false
+        self.emailTextField.isUserInteractionEnabled = false
         self.passwordTextField.isUserInteractionEnabled = false
-            
+          
         let parameters:[String: String] = [
-            "customerName": name,
+            "email": email,
             "password": password
         ]
-        
-        Alamofire.request(ADDR.LOGIN, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseJSON { response in
+                
+        Alamofire.request(ADDR.LOGIN, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             self.loginButton.hideLoading()
 
-            self.nameTextField.isUserInteractionEnabled = true
+            self.emailTextField.isUserInteractionEnabled = true
             self.passwordTextField.isUserInteractionEnabled = true
-            
+                        
             if let json = response.result.value {
                 let jsonData = json as! [String : Any]
                 
-                let code = jsonData["code"] as! Int
-                
-                if code == 0 {
-                    NotificationCenter.default.post(name: .login, object: nil)
-                } else {
-                    let message = jsonData["message"] as! String
-                    
-                    let toast = Toast(text: message, duration: Delay.short)
-                    ToastView.appearance().font = UIFont.systemFont(ofSize: 18)
-                    toast.show()
-                }
+                print(jsonData)
             }
         }
     }

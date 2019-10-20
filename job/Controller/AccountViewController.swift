@@ -9,8 +9,8 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //addLoginView()
-        addAccountView()
+        addLoginView()
+        //addAccountView()
     }
     
     private func addLoginView() {
